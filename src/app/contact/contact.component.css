@@ -1,0 +1,275 @@
+/* Main container for the contact section */
+.contact-container.ff-contact {
+  background: #18181b;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #ff910033;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2.5rem 2rem;
+  animation: fadeInMain 1.2s cubic-bezier(.4,2,.3,1);
+  color: #fff;
+}
+
+/* Row layout */
+.ff-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  animation: fadeInRow 1.3s cubic-bezier(.4,2,.3,1);
+}
+
+/* Details section */
+.ff-contact-details,
+.ff-contact-about-section,
+.ff-contact-info-section {
+  animation: fadeInSection 1.1s cubic-bezier(.4,2,.3,1);
+}
+
+/* About section border */
+.ff-contact-about-section {
+  border-right: 1px solid #23272f;
+  padding-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex: 1 1 320px;
+  min-width: 220px;
+  max-width: 420px;
+}
+
+/* Contact Form Container */
+.ff-contact-info-section {
+  flex: 1 1 340px;
+  min-width: 240px;
+  max-width: 420px;
+  padding-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInRight 1.1s cubic-bezier(.4,2,.3,1);
+}
+
+/* Title */
+.contact-title {
+  font-size: 1.6rem;
+  color: #ff9100;
+  margin-bottom: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: fadeInTitle 1.2s cubic-bezier(.4,2,.3,1);
+}
+
+/* About text */
+.ff-contact-about p {
+  color: #ffb74d;
+  font-size: 1.08rem;
+  margin-bottom: 1.1rem;
+  line-height: 1.7;
+  animation: fadeInAbout 1.3s cubic-bezier(.4,2,.3,1);
+}
+
+/* Highlights list */
+.ff-contact-highlights {
+  margin: 0 0 1.3rem 0;
+  padding-left: 1.2em;
+  color: #ff9100;
+  font-size: 1.05rem;
+  list-style: disc;
+  animation: fadeInList 1.4s cubic-bezier(.4,2,.3,1);
+}
+.ff-contact-highlights li {
+  margin-bottom: 0.4em;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInListItem 0.7s forwards;
+}
+.ff-contact-highlights li:nth-child(1) { animation-delay: 0.2s; }
+.ff-contact-highlights li:nth-child(2) { animation-delay: 0.4s; }
+.ff-contact-highlights li:nth-child(3) { animation-delay: 0.6s; }
+
+/* Map styling */
+.ff-contact-map {
+  margin-top: 1.2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #ff910022;
+  animation: fadeInMap 1.5s cubic-bezier(.4,2,.3,1);
+}
+
+/* Contact info icons and links */
+.ff-contact-icon {
+  color: #ff9100;
+  font-size: 1.3em;
+  margin-right: 0.7em;
+}
+.contact-link {
+  color: #ffb74d;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.contact-link:hover {
+  color: #ff9100;
+  text-decoration: underline;
+}
+
+/* Contact Form */
+.ff-contact-form {
+  width: 100%;
+  background: #23272f;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #ff910022, 0 1.5px 8px #ff910022;
+  padding: 2rem 3.5rem 1.5rem 1.5rem;
+  animation: popIn 1.2s cubic-bezier(.4,2,.3,1);
+}
+
+.ff-form-title {
+  font-size: 1.25rem;
+  color: #ff9100;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  animation: fadeInTitle 1.2s cubic-bezier(.4,2,.3,1);
+}
+
+.form-group {
+  margin-bottom: 1.1rem;
+  position: relative;
+  opacity: 0;
+  animation: fadeInFormGroup 0.7s forwards;
+}
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.4s; }
+.form-group:nth-child(4) { animation-delay: 0.6s; }
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #23272f;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #18181b;
+  color: #fff;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+  box-shadow: 0 1px 4px #ff910011;
+}
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #ff9100;
+  background: #23272f;
+  box-shadow: 0 0 0 2px #ff910044;
+}
+
+.contact-textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.contact-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #ff9100 60%, #ff5722 100%);
+  color: #fff;
+  border: none;
+  padding: 0.95rem 0;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px #ff910022;
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInBtn 0.7s forwards 0.8s;
+}
+.contact-btn:active {
+  transform: scale(0.97);
+}
+.contact-btn:disabled {
+  background: #ffb74d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.contact-btn::after {
+  background: rgba(255,145,0,0.2);
+}
+
+/* Animations */
+@keyframes fadeInMain {
+  0% { opacity: 0; transform: scale(0.97) translateY(40px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeInRow {
+  0% { opacity: 0; transform: translateY(40px) scale(0.98);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes fadeInSection {
+  0% { opacity: 0; transform: translateY(30px) scale(0.98);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-20px) scale(0.98);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes fadeInAbout {
+  0% { opacity: 0; transform: translateX(-30px);}
+  100% { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInList {
+  0% { opacity: 0; transform: translateX(-20px);}
+  100% { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInListItem {
+  to { opacity: 1; transform: none;}
+}
+@keyframes fadeInMap {
+  0% { opacity: 0; transform: scale(0.97) translateY(20px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(60px) scale(0.97);}
+  100% { opacity: 1; transform: translateX(0) scale(1);}
+}
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.95) translateY(40px);}
+  100% { opacity: 1; transform: scale(1) translateY(0);}
+}
+@keyframes fadeInFormGroup {
+  to { opacity: 1; transform: none;}
+}
+@keyframes fadeInBtn {
+  to { opacity: 1; transform: none;}
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .contact-container.ff-contact {
+    padding: 1.2rem 0.5rem;
+  }
+  .ff-contact-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .ff-contact-details,
+  .ff-contact-about-section {
+    border-right: none;
+    border-bottom: 1px solid #23272f;
+    padding-right: 0;
+    padding-bottom: 1.2rem;
+    max-width: 100%;
+  }
+  .ff-contact-info-section {
+    padding-left: 0;
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+  .ff-contact-form {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .ff-contact-map {
+    margin-top: 1rem;
+  }
+}

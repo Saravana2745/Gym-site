@@ -1,0 +1,436 @@
+/* --- Container and Title --- */
+.whyus-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem 2rem 1rem;
+  background: linear-gradient(120deg, #fff7e6 0%, #f6f7fb 100%);
+  border-radius: 2.5rem;
+  box-shadow: 0 8px 40px rgba(255,145,0,0.09), 0 2px 16px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.whyus-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ff9100;
+  margin-bottom: 2.7rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #fff7e6;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Unique Timeline/Stepper Layout --- */
+.whyus-timeline {
+  position: relative;
+  margin: 0 auto 3rem auto;
+  padding: 0 0.5rem;
+  max-width: 700px;
+}
+.whyus-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff9100 0%, #ffb347 100%);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.whyus-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 3.5rem;
+  z-index: 2;
+}
+.whyus-step:last-child {
+  margin-bottom: 0;
+}
+.whyus-step-content {
+  background: rgba(255,255,255,0.95);
+  border-radius: 2.5rem 2.5rem 2.5rem 0;
+  box-shadow: 0 8px 32px rgba(255,145,0,0.10), 0 2px 16px rgba(0,0,0,0.04);
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  min-width: 320px;
+  max-width: 420px;
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  border-left: 8px solid #ff9100;
+  border-bottom: 8px solid #ffb347;
+  animation: stepFadeIn 1.1s cubic-bezier(.23,1.02,.67,1.01);
+}
+.whyus-step:nth-child(even) .whyus-step-content {
+  border-left: 8px solid #ffb347;
+  border-bottom: 8px solid #ff9100;
+  border-radius: 2.5rem 2.5rem 0 2.5rem;
+}
+@keyframes stepFadeIn {
+  0% { opacity: 0; transform: translateY(60px) scale(0.95);}
+  60% { opacity: 1; transform: translateY(-10px) scale(1.03);}
+  80% { transform: translateY(4px) scale(0.98);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+.whyus-step:hover .whyus-step-content {
+  box-shadow: 0 16px 48px rgba(255,145,0,0.18), 0 2px 16px rgba(0,0,0,0.10);
+  transform: scale(1.03) rotate(-1deg);
+}
+
+/* --- Stepper Dot and Connector --- */
+.whyus-step-dot {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #ff9100 60%, #ffb347 100%);
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 2px 12px rgba(255,145,0,0.13);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+  animation: dotPop 1s cubic-bezier(.23,1.02,.67,1.01);
+}
+@keyframes dotPop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5);}
+  80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1);}
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1);}
+}
+
+/* --- Stepper Image with Animated Blob --- */
+.whyus-step-img-wrap {
+  position: relative;
+  margin-bottom: 1.2rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.whyus-step-img-wrap .svg-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.22;
+  filter: blur(1px);
+  pointer-events: none;
+  animation: blobMove 7s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes blobMove {
+  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg);}
+  50% { transform: translate(-50%, -50%) scale(1.08) rotate(8deg);}
+  100% { transform: translate(-50%, -50%) scale(0.96) rotate(-6deg);}
+}
+.whyus-step-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 18px rgba(255,145,0,0.13), 0 2px 12px rgba(0,0,0,0.09);
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 4px solid #fff7e6;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.whyus-step:hover .whyus-step-img {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+/* --- Stepper Text --- */
+.whyus-step-content h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ff9100;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px #fff7e6;
+}
+.whyus-step-content p {
+  color: #444;
+  font-size: 1.07rem;
+  margin: 0;
+}
+.whyus-step-content ul {
+  margin: 0.7rem 0 0 0;
+  padding-left: 1.2rem;
+  text-align: left;
+}
+.whyus-step-content li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+/* --- Stats section --- */
+.whyus-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0 2rem 0;
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(1.5px);
+}
+.whyus-logo-anim {
+  margin-bottom: 1.5rem;
+  transition: transform 0.6s;
+}
+.whyus-logo-anim.animated {
+  transform: scale(1.1) rotate(-8deg);
+}
+.whyus-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.whyus-stats-numbers {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.whyus-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ff9100;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  font-size: 1.1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.stat-bar {
+  font-size: 1.3rem;
+  margin-right: 0.2rem;
+}
+
+/* --- CTA section --- */
+.whyus-cta {
+  background: linear-gradient(90deg, #ff9100 0%, #ffb347 100%);
+  color: #fff;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-radius: 1.2rem;
+  margin: 2.5rem 0 1rem 0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 2;
+}
+.whyus-cta h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.whyus-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.whyus-btn {
+  background: #fff;
+  color: #ff9100;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.whyus-btn:hover {
+  background: #ff9100;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255,145,0,0.13);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .whyus-container {
+    padding: 1.5rem 0.5rem;
+    border-radius: 1.2rem;
+  }
+  .whyus-title {
+    font-size: 2rem;
+  }
+  .whyus-timeline {
+    max-width: 98vw;
+    padding: 0;
+  }
+  .whyus-step-content {
+    min-width: 0;
+    max-width: 98vw;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+  }
+  .whyus-step-img {
+    width: 60px;
+    height: 60px;
+  }
+  .whyus-step-img-wrap .svg-bg {
+    width: 60px;
+    height: 60px;
+  }
+  .whyus-stats-numbers {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .whyus-cta {
+    padding: 1.2rem 0.5rem;
+  }
+}
+/* ...existing code... */
+
+/* Fade in/out animation for steps */
+.fade-section {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(.23,1.02,.67,1.01), transform 0.7s cubic-bezier(.23,1.02,.67,1.01);
+  transform: translateY(40px) scale(0.97);
+  will-change: opacity, transform;
+}
+.fade-section.fade-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 2;
+}
+.fade-section.fade-out {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  z-index: 1;
+}
+/* ...existing code... */
+
+html, body {
+  scroll-behavior: smooth;
+}
+/* ...existing code... */
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .whyus-container {
+    padding: 1.2rem 0.3rem;
+    border-radius: 1.2rem;
+  }
+  .whyus-title {
+    font-size: 2rem;
+  }
+  .whyus-timeline {
+    max-width: 100vw;
+    padding: 0;
+  }
+  .whyus-step-content {
+    min-width: 0;
+    max-width: 98vw;
+    padding: 1rem 0.5rem 0.7rem 0.5rem;
+    font-size: 0.98rem;
+  }
+  .whyus-step-img {
+    width: 150px;
+    height: 150px;
+  }
+  .whyus-step-img-wrap .svg-bg {
+    width: 60px;
+    height: 60px;
+  }
+  .whyus-step-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+  .whyus-stats-numbers {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .whyus-cta {
+    padding: 1rem 0.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .whyus-title {
+    font-size: 1.3rem;
+    padding: 0 0.2rem;
+  }
+  .whyus-step-content {
+    padding: 0.7rem 0.2rem 0.5rem 0.2rem;
+    font-size: 0.93rem;
+  }
+  .whyus-step-img {
+    width: 80px;
+    height: 80px;
+  }
+  .whyus-step-img-wrap .svg-bg {
+    width: 40px;
+    height: 40px;
+  }
+  .whyus-step-dot {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+  .whyus-stats {
+    padding: 1rem 0.2rem;
+  }
+  .whyus-cta {
+    padding: 0.7rem 0.1rem;
+    font-size: 0.98rem;
+  }
+}
+/* ...existing code... */
+
+.fade-section {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(.23,1.02,.67,1.01), transform 0.7s cubic-bezier(.23,1.02,.67,1.01);
+  transform: translateY(40px) scale(0.97);
+  will-change: opacity, transform;
+}
+.fade-section.fade-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.whyus-step-content {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(.23,1.02,.67,1.01), transform 0.7s cubic-bezier(.23,1.02,.67,1.01);
+  will-change: opacity, transform;
+}
+.fade-in .whyus-step-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* Add to your amenities section CSS */
+/* Add to your why.component.css */
+.whyus-step-content ul {
+  margin-left: 1.5em;
+}

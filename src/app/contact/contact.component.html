@@ -1,0 +1,41 @@
+<div class="contact-container ff-contact">
+  <div class="ff-contact-row">
+    <!-- Left: About Our Contact Service -->
+    <div class="ff-contact-details ff-contact-about-section">
+      <h2 class="contact-title">We're Here to Help!</h2>
+      <div class="ff-contact-about">
+        <p>
+          Our team is dedicated to providing you with prompt and friendly support. Whether you have questions about memberships, classes, or facilities, we’re just a message or call away. Reach out to us and experience our commitment to your fitness journey!
+        </p>
+        <ul class="ff-contact-highlights">
+          <li>Quick response to all inquiries</li>
+          <li>Personalized assistance for every member</li>
+          <li>Support available via phone, email, and in-person</li>
+        </ul>
+      </div>
+      <div class="ff-contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=no+35,raja+anamalai+2+nd+street,chennai-600080,India&output=embed"
+          width="100%" height="160" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <!-- Right: Contact Form -->
+    <div class="ff-contact-details ff-contact-info-section">
+      <form class="ff-contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+        <h3 class="ff-form-title">Send us a Message</h3>
+        <div class="form-group">
+          <input type="text" name="name" ngModel required placeholder="Your Name" class="contact-input" />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" ngModel required placeholder="Your Email" class="contact-input" />
+        </div>
+        <div class="form-group">
+          <textarea name="message" ngModel required placeholder="Your Message" class="contact-textarea"></textarea>
+        </div>
+        <button type="submit" class="contact-btn" [disabled]="!contactForm.valid">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

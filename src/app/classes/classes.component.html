@@ -1,0 +1,56 @@
+<div class="gym-hero-3d">
+  <spline-viewer url="https://prod.spline.design/vvEoBbZ9BoDXJxZX/scene.splinecode"></spline-viewer>
+  <div class="gym-hero-overlay">
+    <h1 class="gym-hero-title">Elevate Your Fitness</h1>
+    <p class="gym-hero-subtitle">Discover world-class classes, trainers, and experiences</p>
+  </div>
+</div>
+
+<div class="gym-scroll-sections">
+  <section
+    *ngFor="let c of classes; let i = index"
+    class="gym-scroll-card"
+    [class.visible]="mostVisibleIndex === i"
+    [class.reverse]="i % 2 === 1"
+    [attr.id]="'class-' + i"
+  >
+    <!-- Background video for each class -->
+    <video class="class-bg-video" autoplay muted loop playsinline #bgVideo>
+      <source [src]="c.video" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="gym-scroll-img-wrap">
+      <img [src]="c.img" [alt]="c.title + ' Class'" class="gym-scroll-img" />
+    </div>
+    <div class="gym-scroll-content">
+      <h2 class="gym-scroll-title">{{ c.title }}</h2>
+      <div class="gym-rating-bar">
+        <div class="class-rating">
+          <ng-container *ngFor="let star of getStars(c.rating); let j = index">
+            <ng-container [ngSwitch]="getStarType(c.rating, j)">
+              <span *ngSwitchCase="'full'" class="star">&#9733;</span>
+              <span *ngSwitchCase="'half'" class="star half-star"><span class="star-half">&#9733;</span><span class="star-empty">&#9733;</span></span>
+              <span *ngSwitchCase="'empty'" class="star">&#9734;</span>
+            </ng-container>
+          </ng-container>
+        </div>
+        <span class="gym-rating">{{ c.rating }}</span>
+      </div>
+      <div class="gym-bar-bg">
+        <div
+          class="gym-bar-fill"
+          [ngStyle]="{ width: mostVisibleIndex === i ? (c.rating * 20) + '%' : '0' }"
+        ></div>
+      </div>
+      <div class="gym-trainer">{{ c.trainer }}</div>
+      <div class="gym-scroll-desc">{{ c.desc }}</div>
+      <ul class="gym-scroll-benefits">
+        <li *ngFor="let b of c.benefits">{{ b }}</li>
+      </ul>
+      <button class="gym-btn" (click)="goToMembership(i)">
+        Book Now
+        <span class="ripple"></span>
+      </button>
+    </div>
+  </section>
+</div>

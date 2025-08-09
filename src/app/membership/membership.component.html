@@ -1,0 +1,196 @@
+<div class="membership-hero">
+  <img src="fitness.jpg" alt="Fitness" class="membership-hero-img moving-img" />
+  <div class="membership-hero-text">
+    <h1>Unlock Your Best Self</h1>
+    <p>
+      Join our vibrant fitness community and get access to world-class trainers, unlimited classes, and exclusive member benefits.
+    </p>
+    <button class="membership-cta-btn" (click)="scrollToCombos()">View Membership Plans</button>
+  </div>
+</div>
+
+<div class="membership-benefits">
+  <h2>OUR WORK</h2>
+  <div class="benefits-list">
+    <div class="benefit-item">
+      <img src="benifit1.jpg" alt="Certified Trainers" />
+      <span>Certified Trainers</span>
+    </div>
+    <div class="benefit-item">
+      <img src="benifit2.jpg" alt="Modern Equipment" />
+      <span>Modern Equipment</span>
+    </div>
+    <div class="benefit-item">
+      <img src="benifit3.jpg" alt="Flexible Timings" />
+      <span>Flexible Timings</span>
+    </div>
+    <div class="benefit-item">
+      <img src="benifit4.jpg" alt="Nutrition Guidance" />
+      <span>Nutrition Guidance</span>
+    </div>
+  </div>
+</div>
+
+<div class="membership-combos" id="combos">
+  <h2>Combo Offers</h2>
+  <div class="membership-combo-list">
+    <div
+      class="membership-combo-card"
+      *ngFor="let combo of comboOffers; let i = index"
+      [style.animationDelay]="(i * 0.15) + 's'"
+    >
+      <div class="membership-combo-card-inner">
+        <!-- Front Face -->
+        <div class="membership-combo-card-front">
+          <img src="start.jpg" alt="Combo" class="combo-img" />
+          <h3>{{ combo.name }}</h3>
+          <div class="combo-price">{{ combo.price }}</div>
+          <ul>
+            <li *ngFor="let d of combo.details">{{ d }}</li>
+          </ul>
+          <button class="membership-confirm-btn" (click)="selectCombo(combo)">
+            Choose Offer
+          </button>
+        </div>
+        <!-- Back Face -->
+        <div class="membership-combo-card-back">
+          <h3>Special Offer!</h3>
+          <p class="combo-special">{{ combo.special }}</p>
+  <ul>
+    <li *ngFor="let d of combo.details">{{ d }}</li>
+  </ul>
+          <button class="membership-confirm-btn" (click)="selectCombo(combo)">
+            Select This Combo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="membership-booking-alt" id="membership-booking" *ngIf="bookingStep > 0">
+  <div class="stepper">
+    <!-- Step 1: Select Class -->
+    <!-- Step 1: Select Class (Always Visible) -->
+<div class="step" [class.active]="bookingStep === 1">
+  <div class="step-header">
+    <span class="step-number">1</span>
+    <span>Select Class</span>
+  </div>
+  <div class="step-content">
+    <div class="class-list-vertical">
+      <div
+        *ngFor="let c of classes; let i = index"
+        class="class-card-vertical"
+        [class.selected]="selectedClassIndex === i"
+        (click)="selectClass(i)"
+      >
+        <img [src]="c.img" [alt]="c.title" />
+        <div>
+          <h4>{{ c.title }}</h4>
+          <p>{{ c.trainer }}</p>
+          <span class="star">&#9733;</span> {{ c.rating }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Step 2: Select Time -->
+    <div class="step" [class.active]="bookingStep === 2" id="timing-section">
+      <div class="step-header">
+        <span class="step-number">2</span>
+        <span>Choose Time</span>
+      </div>
+      <div class="step-content" *ngIf="bookingStep === 2">
+        <h4 *ngIf="selectedClassIndex !== null && selectedClassIndex !== undefined">
+          Pick a time slot for <b>{{ classes[selectedClassIndex].title }}</b>
+        </h4>
+        <div class="slot-list-vertical">
+          <button
+            *ngFor="let slot of timeSlots"
+            class="slot-btn-vertical"
+            [class.selected]="selectedSlot === slot"
+            (click)="selectSlot(slot)"
+          >
+            {{ slot }}
+          </button>
+        </div>
+        <button class="membership-confirm-btn secondary" (click)="goBack(1)">
+          &larr; Back
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: Confirm Booking -->
+    <div class="step" [class.active]="bookingStep === 3">
+      <div class="step-header">
+        <span class="step-number">3</span>
+        <span>Confirm</span>
+      </div>
+      <div class="step-content" *ngIf="bookingStep === 3">
+        <div class="summary-vertical" *ngIf="selectedClassIndex !== null && selectedClassIndex !== undefined">
+         <img [src]="classes[selectedClassIndex].img" [alt]="classes[selectedClassIndex].title" class="confirm-class-img" />
+          <div>
+            <p>
+              <strong>Class:</strong> {{ classes[selectedClassIndex].title }}<br>
+              <strong>Trainer:</strong> {{ classes[selectedClassIndex].trainer }}<br>
+              <strong>Time Slot:</strong> {{ selectedSlot }}
+            </p>
+            <button class="membership-confirm-btn" (click)="confirmBooking()">
+              Confirm Booking
+            </button>
+            <button class="membership-confirm-btn secondary" (click)="goBack(2)">
+              &larr; Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Confirmation -->
+    <div class="step" [class.active]="bookingStep === 4 && bookingConfirmed">
+      <div class="step-header">
+        <span class="step-number">✔</span>
+        <span>Done</span>
+      </div>
+      <div class="step-content" *ngIf="bookingStep === 4 && bookingConfirmed">
+        <div class="booking-confirmed-card">
+          <img src="done.jpg" alt="Success" class="success-image" />
+          <h3>Booking Confirmed!</h3>
+          <p>
+            <strong>{{ confirmedBooking?.class?.title }}</strong> with <strong>{{ confirmedBooking?.class?.trainer }}</strong><br>
+            <span class="confirmed-slot">{{ confirmedBooking?.slot }}</span>
+          </p>
+          <button class="membership-confirm-btn" (click)="goBack(1)">
+            Book Another Class
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Show placeholder if no class selected -->
+<div *ngIf="bookingStep === 0 || selectedClassIndex === null" class="booking-placeholder-alt">
+  <p>Select a class to start your booking!</p>
+</div>
+
+<div class="membership-testimonial">
+  <img src="spn.avif" alt="Member" class="testimonial-img" />
+  <blockquote>
+    "Joining this gym was the best decision I made for my health. The trainers are motivating, the classes are fun, and the facilities are top-notch!"
+  </blockquote>
+  <span class="testimonial-name">— Priya S., Member since 2022</span>
+</div>
+<div class="membership-faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+  <strong (click)="toggleFaq(i)" [class.open]="openedFaq === i">
+    {{ faq.question }}
+    <span class="faq-arrow" [class.open]="openedFaq === i">&#9660;</span>
+  </strong>
+ <div class="faq-answer" *ngIf="openedFaq === i">
+  <p>{{ faq.answer }}</p>
+</div>
+</div>

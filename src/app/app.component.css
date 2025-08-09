@@ -1,0 +1,311 @@
+header {
+  background: #000;
+  box-shadow: 0 2px 8px #38bdf822;
+  padding: 0;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  min-height: 60px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #ff9800; /* Changed to orange */
+  gap: 8px;
+}
+.logo img {
+  height: 72px;
+  margin-right: 8px;
+  width: 88px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline-block;
+}
+.nav-btn {
+  color: #ff9800; /* Changed to orange */
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-btn:hover {
+  background: #e0f2fe;
+  color: #ff9800; /* Keep orange on hover */
+}
+.login-icon {
+  margin-left: 12px;
+  border-radius: 50%;
+  padding: 2px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff9800; /* Orange for icon */
+}
+.login-icon:hover {
+  background: #e0f2fe;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(35, 43, 57, 0.45);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.3s;
+}
+.login-modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #38bdf822, 0 2px 8px #0001;
+  padding: 36px 28px 28px 28px;
+  z-index: 1001;
+  min-width: 340px;
+  max-width: 95vw;
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s;
+  color: #ff9800; /* Orange text in modal */
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ff9800; /* Orange close button */
+  cursor: pointer;
+  z-index: 1002;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #ff9800;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%);}
+  to   { opacity: 1; transform: translate(-50%, -50%);}
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 8px;
+  }
+  nav ul {
+    gap: 14px;
+  }
+  .login-modal {
+    min-width: 90vw;
+    padding: 18px 6vw 18px 6vw;
+  }
+  .close-btn {
+    top: 6px;
+    right: 10px;
+    font-size: 1.6rem;
+  }
+}
+/* Highlight the active sidebar navigation link */
+.sidebar-nav a.active {
+  background: #fff3e0;
+  color: #e65100 !important;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ff980022;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Optionally, highlight the active section */
+section.active-section {
+  box-shadow: 0 0 0 4px #ff9800aa;
+  border-radius: 16px;
+  background: #fffbe6;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.nav-btn.active {
+  background: #fff3e0;
+  color: #e65100 !important;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #ff980022;
+}
+.logo span {
+  color: #ff9800 !important;
+  font-weight: bold;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #000; 
+  box-shadow: 0 2px 12px #ff980022;
+  transition: box-shadow 0.2s;
+}
+@media (max-width: 900px) {
+  nav ul {
+    gap: 18px;
+    font-size: 1rem;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 0;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 8px;
+    min-height: 48px;
+  }
+  .logo {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 6px;
+  }
+  nav li {
+    width: 100%;
+  }
+  .nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  .login-icon {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .login-modal {
+    min-width: 90vw;
+    padding: 18px 6vw 18px 6vw;
+  }
+  .close-btn {
+    top: 6px;
+    right: 10px;
+    font-size: 1.6rem;
+  }
+}
+/* Add to your main CSS file (e.g., app.component.css) */
+
+/* Hide nav menu by default on mobile */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 60px; /* adjust as needed */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+  }
+  nav:hover ul,
+  nav:focus-within ul {
+    display: block;
+  }
+  nav ul li {
+    display: block;
+    text-align: left;
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #eee;
+  }
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  nav {
+    position: relative;
+  }
+  /* Optional: show a menu icon */
+  .nav-menu-icon {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 2em;
+    margin-right: 1em;
+  }
+}
+
+/* Desktop: always show nav */
+@media (min-width: 769px) {
+  .nav-menu-icon {
+    display: none;
+  }
+  nav ul {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+  }
+  nav ul li {
+    display: inline-block;
+    padding: 0 1.2em;
+    border: none;
+  }
+}
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    transition: top 0.3s;
+  }
+  nav ul.open {
+    display: block;
+  }
+  .nav-menu-icon {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 2em;
+    margin-right: 1em;
+  }
+}
+@media (min-width: 769px) {
+  .nav-menu-icon {
+    display: none;
+  }
+  nav ul {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+  }
+}

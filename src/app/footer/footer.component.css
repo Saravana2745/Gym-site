@@ -1,0 +1,249 @@
+.main-footer {
+  background: #18181b;
+  color: #fff;
+  padding: 2.5rem 0 0 0;
+  font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
+.sit-footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2.5rem;
+  padding: 0 2rem;
+}
+
+.sit-footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sit-footer-logo img {
+  margin-bottom: 1.1rem;
+  filter: drop-shadow(0 2px 8px #ff910033);
+}
+.sit-footer-description {
+  flex: 1 1 250px;
+  min-width: 220px;
+  max-width: 340px;
+  font-size: 1.05rem;
+  color: #ffb74d;
+  margin-bottom: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.sit-footer-newsletter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.sit-footer-input {
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background: #23272f;
+  color: #fff;
+  width: 180px;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.sit-footer-input:focus {
+  box-shadow: 0 0 0 2px #ff9100;
+  border: 1.5px solid #ff9100;
+}
+
+.sit-footer-btn {
+  background: linear-gradient(90deg, #ff9100 60%, #ff5722 100%);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #ff910033;
+}
+
+.sit-footer-btn:hover {
+  background: linear-gradient(90deg, #ff5722 60%, #ff9100 100%);
+}
+
+.sit-footer-services,
+.sit-footer-links,
+.sit-footer-contact {
+  flex: 1 1 180px;
+  min-width: 180px;
+  margin-bottom: 1.5rem;
+}
+
+.sit-footer-services h4,
+.sit-footer-links h4,
+.sit-footer-contact h4 {
+  color: #ff9100;
+  font-size: 1.13rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sit-footer-services ul,
+.sit-footer-links ul,
+.sit-footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sit-footer-services li,
+.sit-footer-links li,
+.sit-footer-contact li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ffb74d;
+}
+
+.sit-footer-links a {
+  color: #ffb74d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sit-footer-links a:hover {
+  color: #ff9100;
+  text-decoration: underline;
+}
+
+.sit-footer-contact .icon {
+  margin-right: 0.5em;
+  color: #ff9100;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+
+.sit-footer-bottom {
+  background: #151518;
+  text-align: center;
+  padding: 1.1rem 0 1rem 0;
+  color: #ffb74d;
+  font-size: 0.97rem;
+  margin-top: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .sit-footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  .sit-footer-description,
+  .sit-footer-services,
+  .sit-footer-links,
+  .sit-footer-contact {
+    max-width: 100%;
+  }
+}
+
+/* Newsletter form full width and centered below columns */
+.sit-footer-newsletter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem auto 0 auto;
+  max-width: 420px;
+  justify-content: center;
+}
+
+/* Responsive: stack columns and center newsletter on small screens */
+@media (max-width: 900px) {
+  .sit-footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  .sit-footer-newsletter {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+    width: 100%;
+    margin: 1.5rem 0 0 0;
+  }
+}
+.icon {
+  margin-right: 0.5rem;
+  color: #ffb74d;
+  font-size: 1.18rem;
+  vertical-align: middle;
+}
+
+.contact-link {
+  color: #ffb74d;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s, text-shadow 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-link:hover {
+  color: #ff9100;
+  text-shadow: 0 2px 8px #ff910044;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .contact-container {
+    padding: 1.2rem 0.5rem;
+  }
+  .contact-title {
+    font-size: 1.3rem;
+  }
+}
+.sit-footer-logo img {
+  margin-bottom: 1.1rem;
+  filter: drop-shadow(0 2px 8px #ff910033);
+  width: 60px;
+  height: 1000px;
+  /* Adjust as needed for your design */
+}
+.footer-socials {
+  margin-top: 1.2em;
+  display: flex;
+  gap: 1.1em;
+}
+.footer-social-link {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.footer-social-link:hover {
+  transform: scale(1.18) rotate(-6deg);
+}
+.footer-social-icon {
+  width: 88px;
+  height: 88px;
+  filter: drop-shadow(0 5px 9px #ff910033);
+  /* Make SVG icons orange */
+  filter: none;
+  /* If SVGs are black or single-color, this will work: */
+  fill: #ff9100;
+}
+
+/* If using inline SVG or icon fonts, also add: */
+.footer-social-link svg,
+.footer-social-icon {
+  fill: #ff9100 !important;
+  color: #ff9100 !important;
+}

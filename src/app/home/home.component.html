@@ -1,0 +1,79 @@
+<section class="hero">
+  <video class="hero-bg-video" autoplay loop muted playsinline>
+    <source src="gym.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-content">
+    <h1>Welcome to FitGym</h1>
+    <p>Your journey to fitness starts here.</p>
+    <a (click)="goToMembership()" class="cta-btn" style="cursor:pointer;">Join Now</a>
+  </div>
+</section>
+
+<section class="about-us scroll-animate" id="about-us">
+  <div class="about-us-content">
+    <div class="about-us-text">
+      <h2>About Us</h2>
+      <p>
+        FitGym is dedicated to helping you achieve your fitness goals with modern equipment, expert trainers, and a supportive community. 
+        Whether you’re a beginner or a pro, our flexible plans and motivating environment will keep you on track.
+      </p>
+      <ul class="about-us-list">
+        <li>Open 6am – 11pm, 7 days a week</li>
+        <li>Personalized fitness assessments</li>
+        <li>Nutrition and wellness guidance</li>
+      </ul>
+    </div>
+    <div class="about-us-img">
+      <img src="about.jpg" alt="About FitGym" />
+    </div>
+  </div>
+</section>
+
+<section class="features scroll-animate" id="features">
+  <div class="feature">
+    <h2>Modern Equipment</h2>
+    <p>State-of-the-art machines for all workouts.</p>
+  </div>
+  <div class="feature">
+    <h2>Expert Trainers</h2>
+    <p>Certified trainers to guide you every step.</p>
+  </div>
+  <div class="feature">
+    <h2>Flexible Membership</h2>
+    <p>Plans that fit your schedule and goals.</p>
+  </div>
+</section>
+
+<section class="testimonials scroll-animate" id="testimonials">
+  <h2>What Our Members Say</h2>
+  <div class="testimonials-list">
+    <div class="testimonial">
+      <img src="m1.webp" alt="Member 1" />
+      <blockquote>
+        "FitGym changed my life! The trainers are amazing and the atmosphere is so motivating."
+      </blockquote>
+      <div class="testimonial-name">– Rohan S.</div>
+    </div>
+    <div class="testimonial">
+      <img src="m3.jpg" alt="Member 2" />
+      <blockquote>
+        "I love the variety of classes and the flexible timings. Highly recommended!"
+      </blockquote>
+      <div class="testimonial-name">– Priya K.</div>
+    </div>
+    <div class="testimonial">
+      <img src="m2.webp" alt="Member 3" />
+      <blockquote>
+        "The equipment is top-notch and the staff is always helpful."
+      </blockquote>
+      <div class="testimonial-name">– Aman T.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section scroll-animate" id="cta">
+  <h2>Ready to Transform Your Life?</h2>
+  <p>Join FitGym today and unlock your full potential!</p>
+  <a (click)="goToMembership()" class="cta-btn" style="cursor:pointer;">Get Started</a>
+</section>
